@@ -48,14 +48,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArgsProcessing.cs" />
-    <Compile Include="ListExtention.cs" />
+    <Compile Include="Classes\ArgsProcessing.cs" />
+    <Compile Include="Classes\ListExtention.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RunProcessing.cs" />
+    <Compile Include="Classes\RunProcessing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Git\README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
