@@ -7,5 +7,5 @@ The program, as the name suggests, launches the desired application after activa
 2. Enter the properties of shortcut
 3. In "Object" textbox, input the arguments.
 
-##Arguments:
+## Arguments:
 "Path to file" "Path to program" "Services to start" "Arguments to program"
