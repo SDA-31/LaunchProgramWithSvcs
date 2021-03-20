@@ -7,7 +7,7 @@ namespace Launch_Program_Scs
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) // Entry point
         {
             List<ServiceController> sc = null;
             try

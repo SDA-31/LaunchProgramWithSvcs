@@ -11,18 +11,18 @@ namespace Launch_Program_Scs
 {
     internal static class RunProcessing
     {
-        public static void Exit(int er = 0) // Выход из программы
+        public static void Exit(int er = 0) // Exit from program
         {
             Environment.Exit(er);
         }
 
-        public static bool IsAdmin() // Проверка, запущена ли программа от имени админа
+        public static bool IsAdmin() // Checks the program started as administrator
         {
             var pricipal = new WindowsPrincipal(WindowsIdentity.GetCurrent());
             return pricipal.IsInRole(WindowsBuiltInRole.Administrator);
         }
 
-        public static void Runas(string args) // Запустить от имени админа
+        public static void Runas(string args) // Launch program as administrator
         {
             var processInfo = new ProcessStartInfo
             {
@@ -38,16 +38,16 @@ namespace Launch_Program_Scs
             Exit();
         }
 
-        public static void Start(string file, string args = "")  // Запуск программы
+        public static void Start(string file, string args = "")  // Launch application
         {
             var iStartProcess = new Process();
             iStartProcess.StartInfo.FileName = file;
-            iStartProcess.StartInfo.Arguments = args; // Применение аргументов, с разделителем
+            iStartProcess.StartInfo.Arguments = args;
             iStartProcess.Start();
             Exit();
         }
 
-        public static void ServiceProcessing(List<ServiceController> scs, string[] args) // Запуск служб
+        public static void ServiceProcessing(List<ServiceController> scs, string[] args) // Launch services
         {
             if (scs.Count() != 0)
             {
