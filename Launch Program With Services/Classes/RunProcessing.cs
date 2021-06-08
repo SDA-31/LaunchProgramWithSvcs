@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-using System.ServiceProcess;
 using System.ComponentModel;
-using System.Security.Principal;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
+using System.Security.Principal;
+using System.ServiceProcess;
+using System.Threading;
 
 namespace Launch_Program_Scs
 {
@@ -31,10 +32,7 @@ namespace Launch_Program_Scs
                 Arguments = args
             };
             try { Process.Start(processInfo); }
-            catch (Win32Exception)
-            {
-                Exit(1);
-            }
+            catch (Win32Exception) { Exit(1); }
             Exit();
         }
 
@@ -59,8 +57,11 @@ namespace Launch_Program_Scs
                     {
                         i.Start();
                         i.Refresh();
-                        while (i.Status.ToString() == "StartPending")
+                        while (i.Status == ServiceControllerStatus.StartPending)
+                        {
+                            Thread.Sleep(500);
                             i.Refresh();
+                        }
                     }
                     catch { continue; }
                 }
